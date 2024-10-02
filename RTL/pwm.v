@@ -23,11 +23,11 @@ always@(posedge clk)begin
         end
         else if(count < period)begin
             count <= count + 1;
-            dount <= 0'b0;
+            dout <= 1'b0;
             ncyc <= 1'b0;
         end
         else begin
-            nycy <= 1'b1;
+            ncyc <= 1'b1;
             count <= 0;
         end
     end
@@ -35,7 +35,7 @@ end
 
 always@(posedge clk)begin
     if(rst == 1'b0)begin
-        if(nycy == 1'b1)begin
+        if(ncyc == 1'b1)begin
             if(ton < period)
                 ton <= ton + 5;
             else
